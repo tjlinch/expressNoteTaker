@@ -25,16 +25,10 @@ app.get('/api/notes', (req, res) => res.json(notes));
 //Post Route for new notes
 app.post('/api/notes', (req, res) => {
     const newNote = req.body;
-
-    let maxId = 99;
-
-    for (const note of notes) {
-        if (note.id > maxId) {
-            maxId = node.id;
-        };
-    };
-
-    newNote.id = maxId++;
+    
+    //sets random ids for new notes
+    let newId = Math.floor(Math.random() * 9999);
+    newNote.id = newId;
     notes.push(newNote);
 
     //rewrite db.json with the new note
