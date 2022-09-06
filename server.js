@@ -42,6 +42,25 @@ app.post('/api/notes', (req, res) => {
     res.json(newNote);
 });
 
+//Delete Route to get rid of notes
+app.delete('/api/notes/:id', (req, res) => {
+    for (i = 0; i < notes.length; i++) {
+        if (notes[i].id == req.params.id) {
+            notes.splice(i, 1);
+        }
+    }
+
+    fs.writeFile(path.join(__dirname, '/db/db.json'), JSON.stringify(notes), function (err) {
+        if (err) {
+            return console.info(err);
+        }
+        console.info('Note deleted');
+    });
+
+    res.json(notes);
+})
+
+
 app.listen(PORT, () => {
     console.info(`App listening on port ${PORT}`);
 });
