@@ -28,6 +28,10 @@ Express, Heroku
 
 N/A
 
+## Images
+
+!["Deployed noteTaker App"](./assets/images/Screen%20Shot%202022-10-09%20at%206.02.46%20PM.png)
+
 ## Questions
 
 Have any questions?
